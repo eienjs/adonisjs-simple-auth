@@ -13,7 +13,7 @@
   "exports": {
     ".": "./build/index.js",
     "./types": "./build/src/types.js",
-    "./commands": "./build/commands/index.js",
+    "./commands": "./build/commands/main.js",
     "./commands/*": "./build/commands/*.js",
     "./simple_auth_provider": "./build/providers/simple_auth_provider.js",
     "./plugins/api_client": "./build/src/plugins/japa/api_client.js",
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@adonisjs/assembler": "^7.8.2",
     "@adonisjs/core": "^6.17.2",
+    "@adonisjs/i18n": "^2.2.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@japa/api-client": "^3.1.0",
