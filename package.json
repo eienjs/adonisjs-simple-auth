@@ -1,7 +1,7 @@
 {
   "name": "@eienjs/adonisjs-simple-auth",
   "description": "Single authentication api key that allows authenticate",
-  "version": "0.0.0",
+  "version": "1.0.0-0",
   "type": "module",
   "module": "build/index.js",
   "types": "build/index.d.ts",
