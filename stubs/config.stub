@@ -1,0 +1,12 @@
+{{{
+  exports({ to: app.configPath('simpleauth.ts') })
+}}}
+import env from '#start/env'
+import { defineConfig } from '@eienjs/adonisjs-simple-auth'
+
+const simpleAuthConfig = defineConfig({
+  apiKeyHeader: 'x-api-key',
+  apiKeyValue: env.get('API_KEY'),
+})
+
+export default simpleAuthConfig

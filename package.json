@@ -1,0 +1,152 @@
+{
+  "name": "@eienjs/adonisjs-simple-auth",
+  "description": "Single authentication api key that allows authenticate",
+  "version": "1.0.0",
+  "type": "module",
+  "module": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build",
+    "!build/bin",
+    "!build/tests"
+  ],
+  "exports": {
+    ".": "./build/index.js",
+    "./types": "./build/src/types.js",
+    "./commands": "./build/commands/index.js",
+    "./commands/*": "./build/commands/*.js",
+    "./simple_auth_provider": "./build/providers/simple_auth_provider.js",
+    "./plugins/api_client": "./build/src/plugins/japa/api_client.js",
+    "./simple_auth_middleware": "./build/src/middleware/simple_auth_middleware.js"
+  },
+  "scripts": {
+    "prepare": "is-in-ci || husky",
+    "clean": "del-cli build",
+    "copy:templates": "copyfiles --up 1 \"stubs/**/*.stub\" build",
+    "changelog": "auto-changelog -p && git add CHANGELOG.md",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --import ts-node-maintained/register/esm --enable-source-maps bin/test.ts",
+    "test:coverage": "c8 pnpm run test",
+    "tool:code": "pnpm run lint:check && pnpm run format:check && pnpm run typecheck",
+    "tool:build": "pnpm run tool:code && pnpm run test",
+    "prebuild": "pnpm run tool:code && pnpm run clean",
+    "build": "tsup-node --metafile && tsc --emitDeclarationOnly --declaration",
+    "postbuild": "pnpm run copy:templates && pnpm run index:commands",
+    "release": "np",
+    "version": "pnpm run build && pnpm run changelog",
+    "index:commands": "adonis-kit index build/commands"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^7.8.2",
+    "@adonisjs/core": "^6.17.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@japa/api-client": "^3.1.0",
+    "@japa/assert": "^4.0.1",
+    "@japa/runner": "^4.2.0",
+    "@nodecfdi/eslint-config": "^3.2.1",
+    "@nodecfdi/prettier-config": "^1.4.1",
+    "@nodecfdi/tsconfig": "^1.7.4",
+    "@swc/core": "^1.11.24",
+    "@types/node": "^22.15.16",
+    "auto-changelog": "^2.5.0",
+    "c8": "^10.1.3",
+    "del-cli": "^6.0.0",
+    "eslint": "^9.26.0",
+    "husky": "^9.1.7",
+    "is-in-ci": "^1.0.0",
+    "native-copyfiles": "^0.3.2",
+    "np": "^10.2.0",
+    "prettier": "^3.5.3",
+    "ts-node-maintained": "^10.9.5",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "@adonisjs/core": "^6.17.2",
+    "@japa/api-client": "^3.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@japa/api-client": {
+      "optional": true
+    }
+  },
+  "author": "Fernando Isidro <luffynando@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/eienjs/adonisjs-simple-auth",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eienjs/adonisjs-simple-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eienjs/adonisjs-simple-auth/issues"
+  },
+  "keywords": [
+    "adonisjs",
+    "api",
+    "auth",
+    "key",
+    "headers"
+  ],
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "packageManager": "pnpm@10.10.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "esbuild",
+      "unrs-resolver"
+    ]
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "exclude": [
+      "bin/**",
+      "tests/**"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "prettier": "@nodecfdi/prettier-config/pkg",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "auto-changelog": {
+    "template": "keepachangelog",
+    "hideCredit": true
+  },
+  "np": {
+    "message": "chore(release): :tada: %s",
+    "tag": "latest",
+    "branch": "main",
+    "testScript": "test"
+  },
+  "tsup": {
+    "entry": [
+      "./index.ts",
+      "./src/types.ts",
+      "./src/middleware/simple_auth_middleware.ts",
+      "./providers/simple_auth_provider.ts",
+      "./src/plugins/japa/api_client.ts",
+      "./commands/generate_api_key.ts"
+    ],
+    "outDir": "./build",
+    "clean": true,
+    "format": "esm",
+    "dts": false,
+    "sourcemap": true,
+    "target": "esnext"
+  }
+}

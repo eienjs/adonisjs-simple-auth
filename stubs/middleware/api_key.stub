@@ -1,0 +1,22 @@
+{{#var middlewareName = generators.middlewareName(entity.name)}}
+{{#var middlewareFileName = generators.middlewareFileName(entity.name)}}
+{{{
+  exports({ to: app.middlewarePath(entity.path, middlewareFileName) })
+}}}
+import type { HttpContext } from '@adonisjs/core/http'
+import type { NextFn } from '@adonisjs/core/types/http'
+
+/**
+ * Api Key middleware is used authenticate HTTP requests and deny
+ * access to unauthenticated requests.
+ */
+export default class {{ middlewareName }} {
+  async handle(
+    ctx: HttpContext,
+    next: NextFn,
+  ) {
+    ctx.simpleAuth.authenticate()
+
+    return next()
+  }
+}
