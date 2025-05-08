@@ -3,14 +3,14 @@ import { type HttpContext } from '@adonisjs/core/http';
 import { type I18n } from '@adonisjs/i18n';
 
 export class SimpleAuthException extends Exception {
-  public static readonly code: 'E_SIMPLE_UNAUTHORIZED_ACCESS';
+  public static readonly code = 'E_SIMPLE_UNAUTHORIZED_ACCESS';
 
-  public static readonly status: 401;
+  public static readonly status = 401;
 
   /**
    * Translation identifier. Can be customized
    */
-  public identifier = `errors.${this.code}`;
+  public identifier = `errors.${SimpleAuthException.code}`;
 
   /**
    * Returns the message to be sent in the HTTP response.
