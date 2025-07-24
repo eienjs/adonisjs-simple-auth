@@ -22,7 +22,7 @@
   "scripts": {
     "prepare": "is-in-ci || husky",
     "clean": "del-cli build",
-    "copy:templates": "copyfiles --up 1 \"stubs/**/*.stub\" build",
+    "copy:templates": "copyfiles \"stubs/**/*.stub\" build --up 1",
     "changelog": "auto-changelog -p && git add CHANGELOG.md",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --fix",
