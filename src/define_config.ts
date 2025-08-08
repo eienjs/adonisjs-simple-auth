@@ -1,7 +1,7 @@
+import type { ConfigProvider } from '@adonisjs/core/types';
+import type { ResolvedSimpleAuthConfig, SimpleAuthConfig } from './types.js';
 import { configProvider } from '@adonisjs/core';
 import { Secret } from '@adonisjs/core/helpers';
-import { type ConfigProvider } from '@adonisjs/core/types';
-import { type ResolvedSimpleAuthConfig, type SimpleAuthConfig } from './types.js';
 
 export const defineConfig = (config: SimpleAuthConfig): ConfigProvider<ResolvedSimpleAuthConfig> => {
   return configProvider.create(async (_) => {

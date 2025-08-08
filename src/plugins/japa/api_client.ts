@@ -1,16 +1,16 @@
+import type { ApplicationService } from '@adonisjs/core/types';
+import type { PluginFn } from '@japa/runner/types';
+import type { ResolvedSimpleAuthConfig, SimpleAuthConfig } from '../../types.js';
 import { configProvider } from '@adonisjs/core';
 import { RuntimeException } from '@adonisjs/core/exceptions';
-import { type ApplicationService } from '@adonisjs/core/types';
 import { ApiClient, ApiRequest } from '@japa/api-client';
-import { type PluginFn } from '@japa/runner/types';
-import { type ResolvedSimpleAuthConfig, type SimpleAuthConfig } from '../../types.js';
 
 const API_KEY_ENABLED = Symbol.for('API_KEY_ENABLED');
 
 declare module '@japa/api-client' {
   export interface ApiRequest {
     [API_KEY_ENABLED]: boolean;
-    withApiKey(): this;
+    withApiKey: () => this;
   }
 }
 

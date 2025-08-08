@@ -1,9 +1,9 @@
+import type { ApplicationService } from '@adonisjs/core/types';
+import type { SimpleAuth } from '../src/simple_auth.js';
+import type { ResolvedSimpleAuthConfig, SimpleAuthConfig } from '../src/types.js';
 import { configProvider } from '@adonisjs/core';
 import { RuntimeException } from '@adonisjs/core/exceptions';
-import { type ApplicationService } from '@adonisjs/core/types';
 import SimpleAuthMiddleware from '../src/middleware/simple_auth_middleware.js';
-import { type SimpleAuth } from '../src/simple_auth.js';
-import { type ResolvedSimpleAuthConfig, type SimpleAuthConfig } from '../src/types.js';
 
 /**
  * HttpContext augmentations

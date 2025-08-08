@@ -1,6 +1,6 @@
+import type { HttpContext } from '@adonisjs/core/http';
+import type { I18n } from '@adonisjs/i18n';
 import { Exception } from '@adonisjs/core/exceptions';
-import { type HttpContext } from '@adonisjs/core/http';
-import { type I18n } from '@adonisjs/i18n';
 
 export class SimpleAuthException extends Exception {
   public static readonly code = 'E_SIMPLE_UNAUTHORIZED_ACCESS';

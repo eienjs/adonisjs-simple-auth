@@ -1,6 +1,6 @@
-import { type HttpContext } from '@adonisjs/core/http';
+import type { HttpContext } from '@adonisjs/core/http';
+import type { ResolvedSimpleAuthConfig } from './types.js';
 import { SimpleAuthException } from './errors.js';
-import { type ResolvedSimpleAuthConfig } from './types.js';
 
 export class SimpleAuth {
   public constructor(
