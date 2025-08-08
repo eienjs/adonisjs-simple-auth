@@ -1,20 +1,7 @@
-// @ts-check
-import nodecfdiConfig from '@nodecfdi/eslint-config';
+import eienjs from '@eienjs/eslint-config';
 
-const { defineConfig } = nodecfdiConfig(import.meta.dirname, { adonisjs: true, sonarjs: true, n: true });
-
-export default defineConfig(
-  {
-    files: ['src/plugins/**/*.ts'],
-    rules: {
-      '@typescript-eslint/consistent-type-definitions': 'off',
-      'unicorn/consistent-function-scoping': 'off',
-    },
+export default eienjs({
+  typescript: {
+    tsconfigPath: './tsconfig.json',
   },
-  {
-    files: ['src/errors.ts'],
-    rules: {
-      '@typescript-eslint/require-await': 'off',
-    },
-  },
-);
+});
