@@ -23,14 +23,14 @@
   ],
   "exports": {
     ".": "./build/index.js",
-    "./types": "./build/src/types.js",
-    "./commands": "./build/commands/main.js",
-    "./commands/*": "./build/commands/*.js",
-    "./simple_auth_provider": "./build/providers/simple_auth_provider.js",
-    "./plugins/api_client": "./build/src/plugins/japa/api_client.js",
-    "./simple_auth_middleware": "./build/src/middleware/simple_auth_middleware.js"
+    "./commands/generate_api_key": "./build/commands/generate_api_key.js",
+    "./middleware/simple_auth_middleware": "./build/middleware/simple_auth_middleware.js",
+    "./plugins/api_client": "./build/plugins/api_client.js",
+    "./providers/simple_auth_provider": "./build/providers/simple_auth_provider.js",
+    "./types": "./build/types.js",
+    "./package.json": "./package.json",
+    "./commands": "./build/commands/main.js"
   },
-  "module": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
     "build"

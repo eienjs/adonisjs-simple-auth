@@ -4,11 +4,11 @@ import { StaleGuardRecorder } from 'tsdown-stale-guard';
 export default defineConfig({
   entry: [
     'index.ts',
-    'src/types.ts',
-    'src/middleware/simple_auth_middleware.ts',
-    'providers/simple_auth_provider.ts',
-    'src/plugins/japa/api_client.ts',
-    'commands/generate_api_key.ts',
+    { types: 'src/types.ts' },
+    { 'middleware/*': 'src/middleware/*.ts' },
+    { 'plugins/*': ['src/plugins/japa/*.ts'] },
+    { 'providers/*': 'providers/*.ts' },
+    { 'commands/*': 'commands/*.ts' },
   ],
   outDir: 'build',
   clean: true,
@@ -16,8 +16,6 @@ export default defineConfig({
   minify: 'dce-only',
   fixedExtension: false,
   dts: true,
-  treeshake: false,
-  sourcemap: false,
   target: 'esnext',
   exports: {
     customExports(pkg, _context) {
@@ -27,6 +25,9 @@ export default defineConfig({
     },
   },
   unbundle: true,
+  deps: {
+    skipNodeModulesBundle: true,
+  },
   copy: [
     { from: 'stubs/**/*.stub', to: 'build/stubs', flatten: false },
   ],

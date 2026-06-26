@@ -7,7 +7,7 @@ export const configure = async (command: Configure): Promise<void> => {
   // Publish commands and provider
   await codemods.updateRcFile((rcFile) => {
     rcFile.addCommand('@eienjs/adonisjs-simple-auth/commands');
-    rcFile.addProvider('@eienjs/adonisjs-simple-auth/simple_auth_provider');
+    rcFile.addProvider('@eienjs/adonisjs-simple-auth/providers/simple_auth_provider');
   });
 
   // Publish config file
@@ -19,7 +19,7 @@ export const configure = async (command: Configure): Promise<void> => {
   });
 
   // Register middleware
-  await codemods.registerMiddleware('router', [{ path: '@eienjs/adonisjs-simple-auth/simple_auth_middleware' }]);
+  await codemods.registerMiddleware('router', [{ path: '@eienjs/adonisjs-simple-auth/middleware/simple_auth_middleware' }]);
   await codemods.registerMiddleware('named', [
     {
       name: 'apiKey',
