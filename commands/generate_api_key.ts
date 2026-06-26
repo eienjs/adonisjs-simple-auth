@@ -22,23 +22,20 @@ export default class GenerateApiKey extends BaseCommand {
   declare public force: boolean;
 
   public async run(): Promise<void> {
-    let writeToFile = process.env.NODE_ENV !== 'production';
-    if (this.force) {
-      writeToFile = true;
-    }
+    let shouldWriteToFile = this.force ? true : process.env.NODE_ENV !== 'production';
 
     if (this.show) {
-      writeToFile = false;
+      shouldWriteToFile = false;
     }
 
     const seed = string.random(40);
     const tokenSecret = new Secret(`${seed}${new CRC32().calculate(seed)}`);
     const result = new Secret(
-      `oat_${base64.urlEncode(String(string.random(2)))}.${base64.urlEncode(tokenSecret.release())}`,
+      `oat_${base64.urlEncode(string.random(2))}.${base64.urlEncode(tokenSecret.release())}`,
     );
     const tokenString = result.release();
 
-    if (writeToFile) {
+    if (shouldWriteToFile) {
       const editor = await EnvEditor.create(this.app.appRoot);
       editor.add('API_KEY', tokenString, true);
       await editor.save();

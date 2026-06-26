@@ -301,7 +301,7 @@ export class CRC32 {
       return num;
     }
 
-    return 0xFFFFFFFF - num * -1 + 1;
+    return 0xFFFFFFFF - -num + 1;
   }
 
   public calculate(input: string): number {
