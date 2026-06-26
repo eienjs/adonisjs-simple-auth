@@ -1,7 +1,7 @@
 {
   "name": "@eienjs/adonisjs-simple-auth",
   "type": "module",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "packageManager": "pnpm@11.9.0",
   "description": "Single authentication api key that allows authenticate",
   "author": "Fernando Isidro <luffynando@gmail.com>",
