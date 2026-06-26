@@ -2,7 +2,7 @@
   "name": "@eienjs/adonisjs-simple-auth",
   "type": "module",
   "version": "1.0.2",
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@11.9.0",
   "description": "Single authentication api key that allows authenticate",
   "author": "Fernando Isidro <luffynando@gmail.com>",
   "license": "MIT",
@@ -33,35 +33,29 @@
   "module": "build/index.js",
   "types": "build/index.d.ts",
   "files": [
-    "!build/bin",
-    "!build/tests",
     "build"
   ],
   "engines": {
-    "node": ">=20.6.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "prepare": "is-in-ci || husky",
-    "clean": "del-cli build",
-    "copy:templates": "copyfiles \"stubs/**/*.stub\" build --up 1",
-    "changelog": "auto-changelog -p && git add CHANGELOG.md",
-    "typecheck": "tsc --noEmit",
+    "changelog": "auto-changelog -u -p",
+    "commitlint": "commitlint --edit",
+    "index:commands": "adonis-kit index build/commands",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
-    "test": "node --import ts-node-maintained/register/esm --enable-source-maps bin/test.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import=@poppinss/ts-exec --enable-source-maps bin/test.ts",
     "test:coverage": "c8 pnpm run test",
     "tool:code": "pnpm run lint:check && pnpm run typecheck",
     "tool:build": "pnpm run tool:code && pnpm run test",
-    "prebuild": "pnpm run tool:code && pnpm run clean",
-    "build": "tsup-node --metafile && tsc --emitDeclarationOnly --declaration",
-    "postbuild": "pnpm run copy:templates && pnpm run index:commands",
-    "release": "np",
-    "version": "pnpm run build && pnpm run changelog",
-    "index:commands": "adonis-kit index build/commands"
+    "build": "tsdown && pnpm run index:commands",
+    "release": "release-it"
   },
   "peerDependencies": {
-    "@adonisjs/core": "^6.17.2",
-    "@japa/api-client": "^3.1.0"
+    "@adonisjs/core": "^7.3.4",
+    "@japa/api-client": "^3.2.1"
   },
   "peerDependenciesMeta": {
     "@japa/api-client": {
@@ -69,33 +63,28 @@
     }
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^7.8.2",
-    "@adonisjs/core": "^6.17.2",
-    "@adonisjs/i18n": "^2.2.2",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@eienjs/eslint-config": "^1.0.2",
-    "@japa/api-client": "^3.1.0",
-    "@japa/assert": "^4.1.1",
-    "@japa/runner": "^4.3.1",
-    "@nodecfdi/tsconfig": "^1.7.4",
-    "@swc/core": "^1.13.3",
-    "@types/node": "^22.17.0",
-    "auto-changelog": "^2.5.0",
-    "c8": "^10.1.3",
-    "del-cli": "^6.0.0",
-    "eslint": "^9.32.0",
+    "@adonisjs/assembler": "^8.4.0",
+    "@adonisjs/core": "^7.3.4",
+    "@adonisjs/eslint-plugin": "^2.2.2",
+    "@adonisjs/i18n": "^3.0.1",
+    "@adonisjs/tsconfig": "^2.0.0",
+    "@commitlint/cli": "^21.1.0",
+    "@commitlint/config-conventional": "^21.1.0",
+    "@eienjs/eslint-config": "^2.1.0",
+    "@japa/api-client": "^3.2.1",
+    "@japa/assert": "^4.2.0",
+    "@japa/runner": "^5.3.0",
+    "@types/node": "^24.13.2",
+    "auto-changelog": "^2.6.0",
+    "c8": "^11.0.0",
+    "eslint": "^10.5.0",
+    "eslint-plugin-erasable-syntax-only": "^0.4.2",
     "husky": "^9.1.7",
-    "is-in-ci": "^1.0.0",
-    "native-copyfiles": "^1.3.5",
-    "np": "^10.2.0",
-    "ts-node-maintained": "^10.9.6",
-    "typescript": "^5.9.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@swc/core"
-    ]
+    "is-in-ci": "^2.0.0",
+    "release-it": "^20.2.0",
+    "tsdown": "^0.22.3",
+    "tsdown-stale-guard": "^0.1.2",
+    "typescript": "^6.0.3"
   },
   "c8": {
     "reporter": [
@@ -118,28 +107,39 @@
   },
   "auto-changelog": {
     "template": "keepachangelog",
-    "hideCredit": true
+    "hideCredit": true,
+    "commitLimit": false
   },
-  "np": {
-    "message": "chore(release): :tada: %s",
-    "tag": "latest",
-    "branch": "main",
-    "testScript": "test"
-  },
-  "tsup": {
-    "entry": [
-      "./index.ts",
-      "./src/types.ts",
-      "./src/middleware/simple_auth_middleware.ts",
-      "./providers/simple_auth_provider.ts",
-      "./src/plugins/japa/api_client.ts",
-      "./commands/generate_api_key.ts"
-    ],
-    "outDir": "./build",
-    "clean": true,
-    "format": "esm",
-    "dts": false,
-    "sourcemap": true,
-    "target": "esnext"
+  "release-it": {
+    "git": {
+      "commit": true,
+      "tag": true,
+      "push": true,
+      "requireCleanWorkingDir": true,
+      "commitMessage": "chore(release): :tada: v${version}",
+      "tagAnnotation": "chore(release): :tada: v${version}"
+    },
+    "github": {
+      "release": true,
+      "web": true,
+      "releaseName": "Release v${version}"
+    },
+    "npm": {
+      "publish": true,
+      "publishPackageManager": "pnpm",
+      "publishArgs": [
+        "--no-git-checks"
+      ]
+    },
+    "hooks": {
+      "before:init": [
+        "pnpm run lint:check",
+        "pnpm run typecheck"
+      ],
+      "after:bump": [
+        "pnpm run build",
+        "pnpm run changelog"
+      ]
+    }
   }
 }
