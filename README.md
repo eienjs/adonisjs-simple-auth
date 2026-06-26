@@ -7,14 +7,37 @@
 [![Build Status][badge-build]][build]
 [![Total Downloads][badge-downloads]][downloads]
 
-<!-- [![Build Status][badge-build]][build] -->
-
-> Single authentication key that allows authenticate
+> Single authentication key that allows authenticate on your adonisjs v7 application
 
 ## Introduction
 
 This package enables you to create a single authentication key that allows you to authenticate just by including the key.
 This simplicity also allows a user to make calls easily, with cURL, with interactive docs, or even in their browser.
+
+## Quick Start
+
+Install the package from npm using the following command:
+
+```sh
+node ace add @eienjs/adonisjs-simple-auth
+```
+
+Automatically the command will register the provider and the command. You will be able to use the package immediately. Now you need run the command to generate your api key
+
+```sh
+node ace generate:api-key
+```
+
+So, protect your routes with the following middleware
+
+```typescript
+import router from '@adonisjs/core/services/router';
+import { middleware } from '#start/kernel';
+
+/// ...other routes
+
+router.get('/', () => 'Hello World').use(middleware.apiKey());
+```
 
 ## Documentation
 

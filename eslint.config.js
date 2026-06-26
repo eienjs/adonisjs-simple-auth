@@ -2,6 +2,7 @@ import eienjs from '@eienjs/eslint-config';
 
 export default eienjs({
   adonisjs: true,
+  markdown: true,
   typescript: {
     tsconfigPath: 'tsconfig.json',
     erasableSyntaxOnly: {
@@ -9,8 +10,8 @@ export default eienjs({
     },
   },
 }).append({
+  files: ['src/middleware/*.ts', 'src/define_config.ts', 'src/errors.ts'],
   rules: {
-    'unicorn/no-this-outside-of-class': 'off',
     '@typescript-eslint/require-await': 'off',
   },
 });
