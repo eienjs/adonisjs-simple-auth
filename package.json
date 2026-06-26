@@ -81,7 +81,7 @@
     "eslint-plugin-erasable-syntax-only": "^0.4.2",
     "husky": "^9.1.7",
     "is-in-ci": "^2.0.0",
-    "release-it": "^20.2.0",
+    "release-it": "^20.2.1",
     "tsdown": "^0.22.3",
     "tsdown-stale-guard": "^0.1.2",
     "typescript": "^6.0.3"
