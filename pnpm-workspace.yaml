@@ -1,10 +1,6 @@
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   - '@eienjs/eslint-config'
-  - eslint-plugin-jsdoc@63.0.9
-  - eslint-plugin-n@18.2.1
-  - eslint-plugin-regexp@3.1.1
-  - release-it@20.2.1
 shellEmulator: true
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 2880
