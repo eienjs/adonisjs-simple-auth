@@ -56,7 +56,7 @@ The `@eienjs/adonisjs-simple-auth` library is licensed for use under the MIT Lic
 [source]: https://github.com/eienjs/adonisjs-simple-auth
 [node-version]: https://www.npmjs.com/package/@eienjs/adonisjs-simple-auth
 [release]: https://www.npmjs.com/package/@eienjs/adonisjs-simple-auth
-[license]: https://github.com/eienjs/adonisjs-simple-auth/blob/main/LICENSE.md
+[license]: https://github.com/eienjs/adonisjs-simple-auth/blob/main/LICENSE
 [build]: https://github.com/eienjs/adonisjs-simple-auth/actions/workflows/build.yml?query=branch:main
 [downloads]: https://www.npmjs.com/package/@eienjs/adonisjs-simple-auth
 [badge-source]: https://img.shields.io/badge/source-eienjs/adonisjs--simple--auth-blue.svg?logo=github
