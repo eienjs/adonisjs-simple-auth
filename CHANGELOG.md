@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v2.0.0](https://github.com/eienjs/adonisjs-simple-auth/compare/v1.0.2...v2.0.0)
+## [v2.0.1](https://github.com/eienjs/adonisjs-simple-auth/compare/v2.0.0...v2.0.1)
+
+### Commits
+
+- chore: :arrow_up: update dependencies and resolve some problems with eslint [`780cc9f`](https://github.com/eienjs/adonisjs-simple-auth/commit/780cc9fca9094951ad113211adf96e4629c42506)
+
+## [v2.0.0](https://github.com/eienjs/adonisjs-simple-auth/compare/v1.0.2...v2.0.0) - 2026-06-26
 
 ### Commits
 
@@ -13,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - style: :rotating_light: resolve issues reported by eslint [`ac70618`](https://github.com/eienjs/adonisjs-simple-auth/commit/ac70618faff6745fd253097e006866972c84ce56)
 - chore: :wrench: update config files for follow latest changes in org [`865a5b8`](https://github.com/eienjs/adonisjs-simple-auth/commit/865a5b8c01ab3a8964e4bd0139478b58fbc8edae)
 - chore: :arrow_up: update dependencies and remove old config for tool code [`adf8bb2`](https://github.com/eienjs/adonisjs-simple-auth/commit/adf8bb2dbccd9e79cf11cbfecc251b7c5c3d99a5)
+- chore(release): :tada: v2.0.0 [`e4049ba`](https://github.com/eienjs/adonisjs-simple-auth/commit/e4049ba92650ea20b2d54e1e21afbbfecb1aea62)
 - chore: :arrow_up: update dependencies [`b827d86`](https://github.com/eienjs/adonisjs-simple-auth/commit/b827d866b38d01de67d67d96f2451f597ff6324b)
 - build: :ambulance: resolve problems with build generation using tsdown [`7b80a2f`](https://github.com/eienjs/adonisjs-simple-auth/commit/7b80a2f8955d213a6afa98ff9cb1a6cf87eff93c)
 - style: :lipstick: resolve issues reported by eslint and typecheck [`4f5f9fc`](https://github.com/eienjs/adonisjs-simple-auth/commit/4f5f9fc0b23313ad2124b60b2d18366e9e272e5d)
