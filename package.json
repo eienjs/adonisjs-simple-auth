@@ -3,7 +3,7 @@
   "type": "module",
   "version": "2.0.1",
   "packageManager": "pnpm@12.16.1",
-  "description": "Single authentication api key that allows authenticate",
+  "description": "Single API key authentication for AdonisJS v7 applications",
   "author": "Fernando Isidro <luffynando@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/eienjs/adonisjs-simple-auth",
@@ -148,5 +148,10 @@
         "pnpm run changelog"
       ]
     }
+  },
+  "eienjs": {
+    "title": "Simple Auth",
+    "icon": "i-tabler-key",
+    "category": "adonisjs"
   }
 }
