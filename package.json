@@ -1,7 +1,7 @@
 {
   "name": "@eienjs/adonisjs-simple-auth",
   "type": "module",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "packageManager": "pnpm@12.16.1",
   "description": "Single API key authentication for AdonisJS v7 applications",
   "author": "Fernando Isidro <luffynando@gmail.com>",
@@ -153,5 +153,12 @@
     "title": "Simple Auth",
     "icon": "i-tabler-key",
     "category": "adonisjs"
+  },
+  "inlinedDependencies": {
+    "@japa/core": "10.4.0",
+    "@japa/runner": "5.4.0",
+    "@poppinss/hooks": "7.3.0",
+    "@poppinss/macroable": "1.1.2",
+    "emittery": "1.2.1"
   }
 }
