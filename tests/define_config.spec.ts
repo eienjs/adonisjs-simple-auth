@@ -32,4 +32,18 @@ test.group('defineConfig', () => {
     assert.instanceOf(resolved.apiKeyValue, Secret);
     assert.equal(resolved.apiKeyValue.release(), 'custom-secret');
   });
+
+  test('preserves Secret instance when apiKeyValue is already a Secret', async ({ assert }) => {
+    const { app } = await setupApp();
+    const secret = new Secret('pre-wrapped-secret');
+
+    const configProvider = defineConfig({
+      apiKeyValue: secret,
+    });
+
+    const resolved = await configProvider.resolver(app);
+
+    assert.strictEqual(resolved.apiKeyValue, secret);
+    assert.equal(resolved.apiKeyValue.release(), 'pre-wrapped-secret');
+  });
 });

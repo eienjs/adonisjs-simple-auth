@@ -7,7 +7,9 @@ export const defineConfig = (config: SimpleAuthConfig): ConfigProvider<ResolvedS
   return configProvider.create(async (_) => {
     return {
       apiKeyHeader: config.apiKeyHeader ?? 'x-api-key',
-      apiKeyValue: new Secret(config.apiKeyValue),
+      apiKeyValue: config.apiKeyValue instanceof Secret
+        ? config.apiKeyValue
+        : new Secret(config.apiKeyValue),
     };
   });
 };

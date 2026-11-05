@@ -60,4 +60,17 @@ test.group('SimpleAuth', () => {
       'Unauthorized access',
     );
   });
+
+  test('throws SimpleAuthException when configured API key value is empty or whitespace', ({ assert }) => {
+    const ctx = createHttpContext({ 'x-api-key': 'some-key' });
+    const simpleAuth = new SimpleAuth(ctx, createResolvedConfig(''));
+
+    assert.throws(
+      () => {
+        simpleAuth.authenticate();
+      },
+      SimpleAuthException,
+      'Unauthorized access',
+    );
+  });
 });

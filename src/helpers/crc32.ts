@@ -275,6 +275,8 @@ export class CRC32 {
 
   protected readonly initialCRC = 0xFFFFFFFF;
 
+  protected readonly encoder = new TextEncoder();
+
   protected calculateBytes(bytes: Uint8Array, accumulator?: number): number {
     let crc = accumulator ?? this.initialCRC;
     for (const byte of bytes) {
@@ -287,21 +289,11 @@ export class CRC32 {
   }
 
   protected crcToUint(crc: number): number {
-    return this.toUint32(crc ^ 0xFFFFFFFF);
+    return (crc ^ 0xFFFFFFFF) >>> 0;
   }
 
   protected strToBytes(input: string): Uint8Array {
-    const encoder = new TextEncoder();
-
-    return encoder.encode(input);
-  }
-
-  protected toUint32(num: number): number {
-    if (num >= 0) {
-      return num;
-    }
-
-    return 0xFFFFFFFF - -num + 1;
+    return this.encoder.encode(input);
   }
 
   public calculate(input: string): number {

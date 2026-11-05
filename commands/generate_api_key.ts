@@ -8,8 +8,7 @@ import { CRC32 } from '../src/helpers/crc32.js';
 export default class GenerateApiKey extends BaseCommand {
   public static readonly commandName = 'generate:api-key';
 
-  public static readonly description
-    = 'Generate a a cryptographically secure random value suffixed with a CRC32 checksum';
+  public static readonly description = 'Generate a cryptographically secure random value suffixed with a CRC32 checksum';
 
   @flags.boolean({
     description: 'Display the token on the terminal, instead of writing it to .env file',

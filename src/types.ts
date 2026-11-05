@@ -2,7 +2,7 @@ import type { Secret } from '@adonisjs/core/helpers';
 
 export interface SimpleAuthConfig {
   apiKeyHeader?: string;
-  apiKeyValue: string;
+  apiKeyValue: string | Secret<string>;
 }
 
 export interface ResolvedSimpleAuthConfig {

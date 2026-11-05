@@ -1,5 +1,6 @@
 import type { HttpContext } from '@adonisjs/core/http';
 import type { ResolvedSimpleAuthConfig } from './types.js';
+import { safeEqual } from '@adonisjs/core/helpers';
 import { SimpleAuthException } from './errors.js';
 
 export class SimpleAuth {
@@ -23,9 +24,9 @@ export class SimpleAuth {
 
   public authenticate(): void {
     const apiKeyTokenRequest = this.getApiKeyRequest();
-    const apiKeyTokenConfig = this.config.apiKeyValue;
+    const apiKeyTokenConfig = this.config.apiKeyValue.release();
 
-    if (apiKeyTokenRequest !== apiKeyTokenConfig.release()) {
+    if (!apiKeyTokenConfig.trim() || !safeEqual(apiKeyTokenConfig, apiKeyTokenRequest)) {
       throw this.authenticationFailed();
     }
   }
