@@ -9,9 +9,4 @@ export default eienjs({
       parameterProperties: false,
     },
   },
-}).append({
-  files: ['src/middleware/*.ts', 'src/define_config.ts', 'src/errors.ts'],
-  rules: {
-    '@typescript-eslint/require-await': 'off',
-  },
 });

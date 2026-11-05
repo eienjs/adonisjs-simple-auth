@@ -25,6 +25,7 @@ export class SimpleAuthException extends Exception {
     return error.message;
   }
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   public async handle(error: this, ctx: HttpContext): Promise<void> {
     const message = this.getResponseMessage(error, ctx);
 

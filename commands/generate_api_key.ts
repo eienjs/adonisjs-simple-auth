@@ -22,7 +22,7 @@ export default class GenerateApiKey extends BaseCommand {
   declare public force: boolean;
 
   public async run(): Promise<void> {
-    let shouldWriteToFile = this.force ? true : process.env.NODE_ENV !== 'production';
+    let shouldWriteToFile = this.force || process.env.NODE_ENV !== 'production';
 
     if (this.show) {
       shouldWriteToFile = false;
