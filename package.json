@@ -56,13 +56,17 @@
   "peerDependencies": {
     "@adonisjs/assembler": "^8.6.0",
     "@adonisjs/core": "^7.3.4",
-    "@japa/api-client": "^3.2.1"
+    "@japa/api-client": "^3.2.1",
+    "@japa/runner": "^5.4.0"
   },
   "peerDependenciesMeta": {
     "@adonisjs/assembler": {
       "optional": true
     },
     "@japa/api-client": {
+      "optional": true
+    },
+    "@japa/runner": {
       "optional": true
     }
   },
