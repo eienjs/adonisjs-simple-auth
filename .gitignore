@@ -28,3 +28,9 @@ coverage
 package-lock.json
 yarn.lock
 shrinkwrap.yaml
+
+# AI Related
+.gemini/
+.agent/
+.agents/
+.claude/

@@ -10,3 +10,11 @@ shellEmulator: true
 
 allowBuilds:
   '@swc/core': true
+
+permissions:
+  tsdown:
+    skills: true
+
+skills:
+  dirs:
+    - .gemini/skills
