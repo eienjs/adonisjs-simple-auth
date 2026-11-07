@@ -5,7 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v2.1.0](https://github.com/eienjs/adonisjs-simple-auth/compare/v2.0.1...v2.1.0)
+## [v2.1.1](https://github.com/eienjs/adonisjs-simple-auth/compare/v2.1.0...v2.1.1)
+
+### Commits
+
+- chore: :construction: update dependencies, ignore AI directories, and refine project configuration [`3cdc702`](https://github.com/eienjs/adonisjs-simple-auth/commit/3cdc7025b601ddc1c6049abb70b71cfff966256b)
+- chore: :heavy_plus_sign: add @japa/runner to optional peer dependencies [`218596b`](https://github.com/eienjs/adonisjs-simple-auth/commit/218596b1d465e16af9e5a40215211dd7ad516e15)
+
+## [v2.1.0](https://github.com/eienjs/adonisjs-simple-auth/compare/v2.0.1...v2.1.0) - 2026-11-05
 
 ### Commits
 
@@ -13,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - docs: :memo: add documentation and docs sync workflow [`a4372ce`](https://github.com/eienjs/adonisjs-simple-auth/commit/a4372ce69ba3aa8899dd839c4d1b842f791373e7)
 - test: :test_tube: add comprehensive test suite and testing helpers [`56072a3`](https://github.com/eienjs/adonisjs-simple-auth/commit/56072a36731ece24454017f3a99e39a0e6024a88)
 - refactor: :recycle: improve security, config handling, and crc32 performance [`e09aded`](https://github.com/eienjs/adonisjs-simple-auth/commit/e09aded42c5144a8a7e6a8d7788380fe46166b22)
+- chore(release): :tada: v2.1.0 [`7d93ad2`](https://github.com/eienjs/adonisjs-simple-auth/commit/7d93ad2a1942d5130c33eb09e545eb8b916ed061)
 - docs: :memo: fix correct url for LICENSE [`3f742c9`](https://github.com/eienjs/adonisjs-simple-auth/commit/3f742c973a1d45baeeb2375e7eaf731f1350b1d8)
 
 ## [v2.0.1](https://github.com/eienjs/adonisjs-simple-auth/compare/v2.0.0...v2.0.1) - 2026-06-29
